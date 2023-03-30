@@ -61,8 +61,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             preferredSize: Size.fromHeight(
                 MediaQuery.of(context).size.width > UiJ.widthSize
                     ? _scrollPosition == 0
-                        ? 150
-                        : 80
+                        ? 120
+                        : 50
                     : 50),
             child: AppBar(
               backgroundColor: Colors.white,
@@ -86,11 +86,12 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                       controller.changeindextab(0);
                     },
                     child: Container(
+                      padding: EdgeInsets.only(left: 50),
                       child: FittedBox(
                           fit: BoxFit.fitWidth,
                           child: Image.asset('assets/images/logo1.png')),
                       width: MediaQuery.of(context).size.width / 7,
-                      height: MediaQuery.of(context).size.width / 8,
+                      height: MediaQuery.of(context).size.width / 7,
                     ),
                   ),
 
@@ -244,7 +245,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               controller: _scrollController,
               children: [
                 Container(
-                  height: 50,
+                  height: 20,
                   width: MediaQuery.of(context).size.width,
                   child: InkWell(
                       onTap: () {

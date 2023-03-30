@@ -22,18 +22,14 @@ class NewsPage extends StatelessWidget {
     final Controller controller = Get.find();
     return Obx(() {
       _listnews = controller.listnews;
-      return main(context);
+      return Padding(padding: EdgeInsets.only(left: 20, right: 20), child: main(context),);
     });
   }
 
   Widget main(BuildContext context) {
     return ListView(
-      padding: EdgeInsets.all(10),
       children: [
-        Padding(
-            padding: EdgeInsets.only(left: 100, right: 100),
-            child: Container(
-              padding: EdgeInsets.only(top: 20),
+         Container(
               alignment: Alignment.topLeft,
               child: Text(
                 "Новости",
@@ -42,10 +38,10 @@ class NewsPage extends StatelessWidget {
                     fontSize: 30,
                     fontWeight: FontWeight.bold),
               ),
-            )),
+            ),
         Divider(),
         SizedBox(
-          height: 30,
+          height: 10,
         ),
         Container(
             width: MediaQuery.of(context).size.width,
@@ -173,17 +169,9 @@ class NewsPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
-                              // decoration: BoxDecoration(
-                              //     borderRadius: BorderRadius.circular(15)),
                               child: Card(
-                                  // shape: RoundedRectangleBorder(
-                                  //     borderRadius: BorderRadius.circular(15)),
                                   elevation: 5,
                                   child: Container(
-                                      // padding: EdgeInsets.all(20),
-                                      // decoration: BoxDecoration(
-                                      //     borderRadius:
-                                      //         BorderRadius.circular(15)),
                                       child: Image.network(
                                           '${UiJ.url}news/download/news/${_listnews[index].imagepath}',
                                           width: 500,

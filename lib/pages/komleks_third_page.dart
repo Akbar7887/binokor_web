@@ -52,24 +52,27 @@ class KompleksThirdPage extends StatelessWidget {
           ),
           items: [
             Container(
-              padding: EdgeInsets.all(5),
-              child: Image.network(
-                '${UiJ.url}kompleks/download/house/${controller.kompleks!.mainimagepath}',
-                fit: BoxFit.fill,
-              ),
-            ),
+                padding: EdgeInsets.all(5),
+                child: Card(
+                  child: Image.network(
+                    '${UiJ.url}kompleks/download/house/${controller.kompleks!.mainimagepath}',
+                    fit: BoxFit.fill,
+                  ),
+                )),
             Container(
                 padding: EdgeInsets.all(5),
-                child: Image.network(
+                child: Card(
+                    child: Image.network(
                   '${UiJ.url}kompleks/download/house/${controller.kompleks!.mainimagepathfirst}',
                   fit: BoxFit.fill,
-                )),
+                ))),
             Container(
                 padding: EdgeInsets.all(5),
-                child: Image.network(
+                child: Card(
+                    child: Image.network(
                   '${UiJ.url}kompleks/download/house/${controller.kompleks!.mainimagepathsecond}',
                   fit: BoxFit.fill,
-                )),
+                ))),
           ],
         )),
       ],

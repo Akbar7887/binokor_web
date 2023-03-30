@@ -36,14 +36,13 @@ class KompleksDetailesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         Container(
           padding: EdgeInsets.only(
-              top: 10,
-              left: MediaQuery.of(context).size.width > UiJ.widthSize ? 50 : 20,
+              left: MediaQuery.of(context).size.width > UiJ.widthSize ? 20 : 20,
               right:
-                  MediaQuery.of(context).size.width > UiJ.widthSize ? 50 : 20),
+                  MediaQuery.of(context).size.width > UiJ.widthSize ? 20 : 20),
           // width: 100,
           height: 50,
           alignment: Alignment.topLeft,
@@ -66,7 +65,10 @@ class KompleksDetailesPage extends StatelessWidget {
                 ],
               )),
         ),
-        Expanded(
+        Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+
             child: CarouselSlider(
                 items: _listCard.entries.map((e) {
                   return InkWell(
@@ -104,23 +106,23 @@ class KompleksDetailesPage extends StatelessWidget {
                           ),
                           Expanded(
                               child: Image.network(e.value,
-                                  errorBuilder:
-                                      (context, exception, stackTrace) => Icon(
-                                            Icons.business,
-                                            size: MediaQuery.of(context)
-                                                    .size
-                                                    .width /
-                                                8,
-                                            color: Colors.blue,
-                                          )))
+                                          errorBuilder: (context, exception,
+                                                  stackTrace) =>
+                                              Icon(
+                                                Icons.business,
+                                                size: MediaQuery.of(context)
+                                                        .size
+                                                        .width /
+                                                    4,
+                                                color: Colors.blue,
+                                              )))
                         ],
                       ));
                 }).toList(),
                 options: CarouselOptions(
-                    height: MediaQuery.of(context).size.height /
-                        (UiJ.sizeweight(context) ? 1.4 : 1.3),
-                    aspectRatio: 16 / 9,
-                    viewportFraction: 0.3,
+                    height: MediaQuery.of(context).size.height,
+                    aspectRatio: 1,
+                    viewportFraction: 0.4,
                     initialPage: _current,
                     enableInfiniteScroll: true,
                     autoPlay: false,

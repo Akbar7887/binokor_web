@@ -6,8 +6,8 @@ class UiJ {
   static final companyName = 'ООО \"DSK Binokor\"';
 
   static final color = HexColor("#686868");
-  static final hovercolor = Colors.yellow[50];
-  static final selectedcolor = Colors.yellow[100];
+  static final hovercolor = Colors.white70;
+  static final selectedcolor = Colors.white70;
 
   static final font = 'Play'; //sans-serif
   static final fontbold = 'PlayBold';
