@@ -100,7 +100,7 @@ class ShopingBox extends StatelessWidget {
     return SfDataGridTheme(
         data: SfDataGridThemeData(
           headerColor: Colors.blue,
-          rowHoverTextStyle: TextStyle(color: Colors.blue),
+          rowHoverTextStyle: TextStyle(color: Colors.black),
         ),
         child: SfDataGrid(
           columnWidthMode: ColumnWidthMode.fill,
@@ -217,7 +217,10 @@ class ShopingBox extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    TextFormField(
+                   Container(
+                     color: Colors.transparent,
+                       width: MediaQuery.of(context).size.width/3,
+                       child:  TextFormField(
                       controller: _fioController,
                       style: TextStyle(fontSize: 20, fontFamily: UiJ.fontbold),
                       decoration: InputDecoration(
@@ -226,27 +229,30 @@ class ShopingBox extends StatelessWidget {
                           prefix: Icon(Icons.man),
                           labelText: "Ф.И.О.",
                           labelStyle: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.black,
                               fontWeight: FontWeight.w200,
                               fontFamily: UiJ.font),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide:
-                                  BorderSide(width: 0.5, color: Colors.blue)),
+                                  BorderSide(width: 0.5, color: Colors.black)),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide:
-                                  BorderSide(width: 0.5, color: Colors.blue))),
+                                  BorderSide(width: 0.5, color: Colors.black))),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Не заполнено поле Ф.И.О.!";
                         }
                       },
-                    ),
+                    )),
                     SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
+                Container(
+                  color: Colors.transparent,
+                  width: MediaQuery.of(context).size.width/3,
+                  child:  TextFormField(
                       controller: _phoneController,
                       keyboardType: TextInputType.phone,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
@@ -257,27 +263,30 @@ class ShopingBox extends StatelessWidget {
                           labelText: 'Телефон',
                           prefix: Icon(Icons.phone_android),
                           labelStyle: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.black,
                               fontWeight: FontWeight.w200,
                               fontFamily: UiJ.font),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide:
-                                  BorderSide(width: 0.5, color: Colors.blue)),
+                                  BorderSide(width: 0.5, color: Colors.black)),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide:
-                                  BorderSide(width: 0.5, color: Colors.blue))),
+                                  BorderSide(width: 0.5, color: Colors.black))),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Не заполнено поле Телефон!";
                         }
                       },
-                    ),
+                    )),
                     SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
+                Container(
+                  color: Colors.transparent,
+                  width: MediaQuery.of(context).size.width/3,
+                  child:  TextFormField(
                       controller: _adressController,
                       style: TextStyle(fontSize: 20, fontFamily: UiJ.fontbold),
                       decoration: InputDecoration(
@@ -286,27 +295,29 @@ class ShopingBox extends StatelessWidget {
 //Theme.of(context).backgroundColor,
                           labelText: "Адрес доставки",
                           labelStyle: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.black,
                               fontWeight: FontWeight.w200,
                               fontFamily: UiJ.font),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide:
-                                  BorderSide(width: 0.5, color: Colors.blue)),
+                                  BorderSide(width: 0.5, color: Colors.black)),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide:
-                                  BorderSide(width: 0.5, color: Colors.blue))),
+                                  BorderSide(width: 0.5, color: Colors.black))),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Не заполнено поле Ф.И.О.!";
                         }
                       },
-                    ),
+                    )),
                     SizedBox(
                       height: 20,
                     ),
                     Container(
+                        width: MediaQuery.of(context).size.width/3,
+
                         height: 50,
                         child: ElevatedButton(
                             style: ButtonStyle(
@@ -373,12 +384,14 @@ class ShopingBox extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    Text(
+                   Container(
+                     alignment: Alignment.bottomCenter,
+                     child:  Text(
                         "После отправки заказа Наши менеджеры свяжутся с Вами !",
                         style: TextStyle(
                             fontSize: 15,
                             color: Colors.orange,
-                            fontFamily: UiJ.font)),
+                            fontFamily: UiJ.font)),)
                   ],
                 ))));
   }
