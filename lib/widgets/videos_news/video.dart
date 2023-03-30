@@ -1,4 +1,5 @@
 import 'package:binokor_web/getconrollers/Controller.dart';
+import 'package:binokor_web/models/uij.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,6 +7,9 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoVistavka extends StatefulWidget {
+  VideoVistavka({required String path});
+
+  String? path;
   @override
   _VideoVistavkaState createState() => _VideoVistavkaState();
 }
@@ -17,8 +21,8 @@ class _VideoVistavkaState extends State<VideoVistavka> {
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.asset(
-      'assets/videos/vistavka28022023.mp4',
+    _controller = VideoPlayerController.network(
+      '${UiJ.url}${widget.path}',
     );
 
     _controller.addListener(() {

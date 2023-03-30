@@ -1,11 +1,5 @@
 import 'package:binokor_web/pages/catalog_main_page.dart';
 import 'package:binokor_web/widgets/videos_news/video.dart';
-import 'package:binokor_web/widgets/videos_news/video_den_zashit.dart';
-import 'package:binokor_web/widgets/videos_news/video_denzashit_first.dart';
-import 'package:binokor_web/widgets/videos_news/video_football.dart';
-import 'package:binokor_web/widgets/videos_news/video_intervyu.dart';
-import 'package:binokor_web/widgets/videos_news/video_prepodgotovka.dart';
-import 'package:binokor_web/widgets/videos_news/video_vstupleniya.dart';
 import 'package:conditioned/conditioned.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -151,7 +145,7 @@ class NewsPage extends StatelessWidget {
                           }
 
                           if (_listnews[index].id == 32 ||
-                              _listnews[index].id == 33 ) {
+                              _listnews[index].id == 33) {
                             showDialogVideo(context, _listnews[index].title!,
                                 _listnews[index]);
                           }
@@ -248,7 +242,7 @@ class NewsPage extends StatelessWidget {
                         }
 
                         if (_listnews[index].id == 32 ||
-                            _listnews[index].id == 33 ) {
+                            _listnews[index].id == 33) {
                           showDialogVideo(context, _listnews[index].title!,
                               _listnews[index]);
                         }
@@ -405,36 +399,19 @@ class NewsPage extends StatelessWidget {
                                       Divider(
                                         thickness: 1.5,
                                       ),
-                                      if (news.id == 41 ||
-                                          news.id == 21 ||
-                                          news.id == 23 ||
-                                          news.id == 24)
-                                        Expanded(
-                                          child: Padding(
-                                            padding: EdgeInsets.all(5),
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(15),
-                                              child: Conditioned(
-                                                cases: [
-                                                  Case(news.id == 41,
-                                                      builder: () =>
-                                                          VideoVistavka()),
-                                                  Case(news.id == 21,
-                                                      builder: () =>
-                                                          VideoDenZashit()),
-                                                  Case(news.id == 23,
-                                                      builder: () =>
-                                                          VideoPrepodgotovka()),
-                                                  Case(news.id == 24,
-                                                      builder: () =>
-                                                          VideoFootball()),
-                                                ],
-                                                defaultBuilder: () => Text(""),
-                                              ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding: EdgeInsets.all(5),
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            child: VideoVistavka(
+                                              path:
+                                                  'news/download/newsvideo${news.videopath}',
                                             ),
                                           ),
                                         ),
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -614,18 +591,8 @@ class NewsPage extends StatelessWidget {
                                 padding: EdgeInsets.all(5),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(15),
-                                  child: Conditioned(
-                                    cases: [
-                                      Case(news.id == 41,
-                                          builder: () => VideoVistavka()),
-                                      Case(news.id == 21,
-                                          builder: () => VideoDenZashit()),
-                                      Case(news.id == 23,
-                                          builder: () => VideoPrepodgotovka()),
-                                      Case(news.id == 24,
-                                          builder: () => VideoFootball()),
-                                    ],
-                                    defaultBuilder: () => Text(""),
+                                  child: VideoVistavka(
+                                    path: 'news/download/newsvideo${news.videopath}',
                                   ),
                                 ),
                               ),
@@ -686,12 +653,8 @@ class NewsPage extends StatelessWidget {
                   padding: const EdgeInsets.all(5.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
-                    child: Conditioned(
-                      cases: [
-                        Case(news.id == 32, builder: () => VideoIntervyu()),
-                        Case(news.id == 33, builder: () => VideoVstupleniya()),
-                      ],
-                      defaultBuilder: () => Text(""),
+                    child: VideoVistavka(
+                      path: 'news/download/newsvideo${news.videopath}',
                     ),
                   ),
                 ),
