@@ -453,7 +453,7 @@ class SourceMeneger extends DataGridSource {
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Text(
           row.getCells()[0].value.toString(),
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
       Container(
@@ -461,43 +461,42 @@ class SourceMeneger extends DataGridSource {
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Text(
           row.getCells()[1].value.toString(),
-          style: TextStyle(color: Colors.blue),
+
         ),
       ),
       Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Text(row.getCells()[2].value.toString(),
-            style: TextStyle(color: Colors.blue)),
-      ),
+      ),),
       Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Text(row.getCells()[3].value.toString(),
-            style: TextStyle(color: Colors.blue)),
+            ),
       ),
       Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Text(row.getCells()[4].value.toString(),
-            style: TextStyle(color: Colors.blue)),
+           ),
       ),
       Container(
           alignment: Alignment.center,
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Text(row.getCells()[5].value.toString(),
-              style: TextStyle(color: Colors.blue))),
+             )),
       Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Text(row.getCells()[6].value.toString(),
-            style: TextStyle(color: Colors.blue)),
+            ),
       ),
       Container(
         alignment: Alignment.center,
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Text(row.getCells()[7].value.toString(),
-            style: TextStyle(color: Colors.blue)),
+            ),
       ),
       Container(
         alignment: Alignment.center,
