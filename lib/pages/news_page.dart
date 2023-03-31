@@ -150,8 +150,8 @@ class NewsPage extends StatelessWidget {
                           }
                           // if (_controller.listnews.value[index].id == 32 ||
                           //     _controller.listnews.value[index].id == 33) {
-                          if (_controller.news.value.imagenews!.length == 0
-                              && _controller.news.value.videopath != null) {
+                          if (_controller.news.value.imagenews!.length == 0 &&
+                              _controller.news.value.videopath != null) {
                             showDialogVideo(context,
                                 _controller.listnews.value[index].title!);
                           }
@@ -247,8 +247,8 @@ class NewsPage extends StatelessWidget {
                           showDialogphoto(context,
                               _controller.listnews.value[index].title!);
                         }
-                        if (_controller.news.value.imagenews!.length == 0
-                            && _controller.news.value.videopath != null) {
+                        if (_controller.news.value.imagenews!.length == 0 &&
+                            _controller.news.value.videopath != null) {
                           showDialogVideo(context,
                               _controller.listnews.value[index].title!);
                         }
@@ -283,22 +283,15 @@ class NewsPage extends StatelessWidget {
                         ? 100
                         : 20),
             alignment: Alignment.center,
-            title: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: isMobile(context) ? 14 : 24,
-                    fontFamily: UiJ.fontbold,
-                  ),
-                ),
-                Divider(
-                  thickness: 1.5,
-                ),
-              ],
+            title: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: isMobile(context) ? 14 : 24,
+                fontFamily: UiJ.fontbold,
+              ),
             ),
+
             content: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
