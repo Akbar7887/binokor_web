@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../getconrollers/Controller.dart';
+import '../conrollers/Controller.dart';
 import '../models/uij.dart';
 
 final Controller controller = Get.find();

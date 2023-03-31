@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../getconrollers/initservices.dart';
+import '../conrollers/initservices.dart';
 import '../models/uij.dart';
 import 'home.dart';
 

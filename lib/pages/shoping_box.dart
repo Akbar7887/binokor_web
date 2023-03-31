@@ -1,7 +1,7 @@
 import 'dart:ui';
 
-import 'package:binokor_web/getconrollers/ApiConnector.dart';
-import 'package:binokor_web/getconrollers/Controller.dart';
+import 'package:binokor_web/conrollers/ApiConnector.dart';
+import 'package:binokor_web/conrollers/Controller.dart';
 import 'package:binokor_web/models/LightUser.dart';
 import 'package:binokor_web/pages/catalog_main_page.dart';
 import 'package:flutter/cupertino.dart';

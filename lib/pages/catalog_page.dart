@@ -1,4 +1,4 @@
-import 'package:binokor_web/getconrollers/Controller.dart';
+import 'package:binokor_web/conrollers/Controller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -1,4 +1,4 @@
-import 'package:binokor_web/getconrollers/Controller.dart';
+import 'package:binokor_web/conrollers/Controller.dart';
 import 'package:binokor_web/pages/catalog_main_page.dart';
 import 'package:binokor_web/pages/job_page.dart';
 import 'package:binokor_web/pages/komleks_third_page.dart';

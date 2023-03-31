@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vertical_tabs_flutter/vertical_tabs.dart';
 
-import '../getconrollers/Controller.dart';
+import '../conrollers/Controller.dart';
 import '../models/Job.dart';
 import '../models/uij.dart';
 

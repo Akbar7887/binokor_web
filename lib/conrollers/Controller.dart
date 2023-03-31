@@ -1,4 +1,4 @@
-import 'package:binokor_web/getconrollers/ApiConnector.dart';
+
 import 'package:binokor_web/models/ImageDom.dart';
 import 'package:binokor_web/models/Job.dart';
 import 'package:binokor_web/models/Kompleks.dart';
@@ -10,6 +10,7 @@ import '../models/Dom.dart';
 import '../models/Make.dart';
 import '../models/Meneger.dart';
 import '../models/Orderb.dart';
+import 'ApiConnector.dart';
 
 class Controller extends GetxController {
   final api = ApiConnector();

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hovering/hovering.dart';
 import 'package:intl/intl.dart';
-import '../getconrollers/Controller.dart';
+import '../conrollers/Controller.dart';
 import '../models/News.dart';
 import '../models/uij.dart';
 
