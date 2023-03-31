@@ -1,4 +1,3 @@
-
 import 'package:binokor_web/models/ImageDom.dart';
 import 'package:binokor_web/models/Job.dart';
 import 'package:binokor_web/models/Kompleks.dart';
@@ -23,6 +22,7 @@ class Controller extends GetxController {
   var listMake = <Make>[].obs;
   var listJob = <Job>[].obs;
   var listnews = <News>[].obs;
+  Rx<News> news = News().obs;
   var listImageDom = <ImageDom>[].obs;
   Make? make;
   List<Orderb> orderlist = <Orderb>[].obs;
@@ -30,12 +30,11 @@ class Controller extends GetxController {
   int pageKomleks = 0;
 
   int clickedItemPosition = 0;
-  bool isChecked(currentPosition) => clickedItemPosition.obs == currentPosition;
 
+  bool isChecked(currentPosition) => clickedItemPosition.obs == currentPosition;
 
   @override
   onInit() {
-
     fetchListKompleks();
     fetchListMeneger();
     fetchListMake();
@@ -44,7 +43,6 @@ class Controller extends GetxController {
     indexpage.value = 1;
     indextab.value = 0;
     super.onInit();
-
   }
 
   Future<LightUser> postLightUser(String url, LightUser user) async {
@@ -94,14 +92,11 @@ class Controller extends GetxController {
     final loadednews = json.map((e) => News.fromJson(e)).toList();
 
     if (loadednews != null) {
-
       listnews.value = loadednews;
-       listnews.value.sort((a, b) => b.datacreate!.compareTo(a.datacreate!));
+      listnews.value.sort((a, b) => DateTime.parse(a.datacreate!)
+          .compareTo(DateTime.parse(a.datacreate!)));
     }
   }
-
-
-
 
   changeindexpage(int newindex) {
     indexpage.value = newindex;
@@ -120,11 +115,11 @@ class Controller extends GetxController {
     this.make = newMake;
   }
 
-  changetitleKompleks(String title){
+  changetitleKompleks(String title) {
     this.titleKompleks = title;
   }
 
-  changePageKompleks(int i){
+  changePageKompleks(int i) {
     this.pageKomleks = i;
   }
 
