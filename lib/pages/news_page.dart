@@ -6,7 +6,6 @@ import 'package:hovering/hovering.dart';
 import 'package:intl/intl.dart';
 
 import '../conrollers/Controller.dart';
-import '../models/News.dart';
 import '../models/uij.dart';
 
 String _imagepath = '';
@@ -151,11 +150,12 @@ class NewsPage extends StatelessWidget {
                           }
                           // if (_controller.listnews.value[index].id == 32 ||
                           //     _controller.listnews.value[index].id == 33) {
-                          //   showDialogVideo(
-                          //       context,
-                          //       _controller.listnews.value[index].title!,
-                          //       _controller.listnews.value[index]);
-                          // }
+                          if (_controller.news.value.imagenews!.length == 0
+                              && _controller.news.value.videopath != null) {
+                            showDialogVideo(context,
+                                _controller.listnews.value[index].title!);
+                          }
+
                           // showDialogphoto(context, _listnews[index].title!,
                           //     _listnews[index]);
                         },
@@ -247,8 +247,11 @@ class NewsPage extends StatelessWidget {
                           showDialogphoto(context,
                               _controller.listnews.value[index].title!);
                         }
-                        showDialogVideo(
-                            context, _controller.listnews.value[index].title!);
+                        if (_controller.news.value.imagenews!.length == 0
+                            && _controller.news.value.videopath != null) {
+                          showDialogVideo(context,
+                              _controller.listnews.value[index].title!);
+                        }
                       }));
             }));
   }
@@ -261,6 +264,7 @@ class NewsPage extends StatelessWidget {
       builder: (BuildContext dialogContext) {
         return StatefulBuilder(builder: (context, setState) {
           return AlertDialog(
+            // backgroundColor: Colors.black,
             iconPadding: EdgeInsets.zero,
             contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             insetPadding: EdgeInsets.symmetric(
@@ -298,148 +302,14 @@ class NewsPage extends StatelessWidget {
             content: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
-                child: isMobile(context)
-                    ? _controller.news.value.videopath!.isEmpty
-                        ? Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                  flex: 1,
-                                  child: ListView.builder(
-                                    itemCount: _controller
-                                        .news.value.imagenews!.length,
-                                    itemBuilder: (context, idx) {
-                                      return Card(
-                                          shape: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                  color:
-                                                      controller.isChecked(idx)
-                                                          ? UiJ.selectedcolor!
-                                                          : Colors.black12,
-                                                  width: 4.0),
-                                              borderRadius:
-                                                  BorderRadius.circular(15.0)),
-                                          color: controller.isChecked(idx)
-                                              ? UiJ.selectedcolor
-                                              : Colors.white.withOpacity(0.9),
-                                          child: InkWell(
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                            hoverColor: UiJ.hovercolor,
-                                            onTap: () {
-                                              setState(() {
-                                                controller.clickedItemPosition =
-                                                    idx;
-                                                _imagepath = _controller
-                                                    .news
-                                                    .value
-                                                    .imagenews![idx]
-                                                    .imagepath!;
-                                              });
-                                            },
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(15.0),
-                                              child: Image.network(
-                                                '${UiJ.url}news/download/imagenews/${_controller.news.value.imagenews![idx].imagepath}',
-                                                height: MediaQuery.of(context)
-                                                        .size
-                                                        .height /
-                                                    7,
-                                                width: MediaQuery.of(context)
-                                                        .size
-                                                        .width /
-                                                    6,
-                                                fit: BoxFit.cover,
-                                                errorBuilder: (context,
-                                                    exception, stackTrace) {
-                                                  return Center(
-                                                    child:
-                                                        CircularProgressIndicator(),
-                                                  );
-                                                },
-                                              ),
-                                            ),
-                                          ));
-                                    },
-                                  )),
-                              VerticalDivider(
-                                thickness: 1.5,
-                              ),
-                              Expanded(
-                                flex: 3,
-                                child: Container(
-                                  child: Column(
-                                    children: [
-                                      Expanded(
-                                        child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(15.0),
-                                            child: Image.network(
-                                                '${UiJ.url}news/download/imagenews/${_imagepath}',
-                                                fit: BoxFit.cover,
-                                                height: MediaQuery.of(context)
-                                                    .size
-                                                    .height,
-                                                width: MediaQuery.of(context)
-                                                    .size
-                                                    .width,
-                                                errorBuilder: (context,
-                                                    exception, stackTrace) {
-                                              return Center(
-                                                child:
-                                                    CircularProgressIndicator(),
-                                              );
-                                            })),
-                                      ),
-                                      Divider(
-                                        thickness: 1.5,
-                                      ),
-                                      Expanded(
-                                        child: Padding(
-                                          padding: EdgeInsets.all(5),
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(15),
-                                            child: VideoVistavka(),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )
-                        : Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                flex: 3,
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                    child: Image.network(
-                                        '${UiJ.url}news/download/imagenews/${_imagepath}',
-                                        fit: BoxFit.cover,
-                                        height:
-                                            MediaQuery.of(context).size.height,
-                                        width:
-                                            MediaQuery.of(context).size.width,
-                                        errorBuilder:
-                                            (context, exception, stackTrace) {
-                                      return Center(
-                                        child: CircularProgressIndicator(),
-                                      );
-                                    })),
-                              ),
-                              Divider(
-                                thickness: 1.5,
-                              ),
-                              Expanded(
-                                  child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
+                child: _controller.news.value.videopath == null
+                    ? Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                              flex: 1,
+                              child: ListView.builder(
                                 itemCount:
                                     _controller.news.value.imagenews!.length,
                                 itemBuilder: (context, idx) {
@@ -449,7 +319,7 @@ class NewsPage extends StatelessWidget {
                                               color: controller.isChecked(idx)
                                                   ? UiJ.selectedcolor!
                                                   : Colors.black12,
-                                              width: 7.0),
+                                              width: 4.0),
                                           borderRadius:
                                               BorderRadius.circular(15.0)),
                                       color: controller.isChecked(idx)
@@ -480,7 +350,7 @@ class NewsPage extends StatelessWidget {
                                                     .size
                                                     .width /
                                                 6,
-                                            fit: BoxFit.fill,
+                                            fit: BoxFit.cover,
                                             errorBuilder: (context, exception,
                                                 stackTrace) {
                                               return Center(
@@ -493,8 +363,52 @@ class NewsPage extends StatelessWidget {
                                       ));
                                 },
                               )),
-                            ],
-                          )
+                          VerticalDivider(
+                            thickness: 1.5,
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Container(
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(15.0),
+                                        child: Image.network(
+                                            '${UiJ.url}news/download/imagenews/${_imagepath}',
+                                            fit: BoxFit.cover,
+                                            height: MediaQuery.of(context)
+                                                .size
+                                                .height,
+                                            width: MediaQuery.of(context)
+                                                .size
+                                                .width,
+                                            errorBuilder: (context, exception,
+                                                stackTrace) {
+                                          return Center(
+                                            child: CircularProgressIndicator(),
+                                          );
+                                        })),
+                                  ),
+                                  // Divider(
+                                  //   thickness: 1.5,
+                                  // ),
+                                  // Expanded(
+                                  //   child: Padding(
+                                  //     padding: EdgeInsets.all(5),
+                                  //     child: ClipRRect(
+                                  //       borderRadius: BorderRadius.circular(15),
+                                  //       child: VideoVistavka(),
+                                  //     ),
+                                  //   ),
+                                  // ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
                     : Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
