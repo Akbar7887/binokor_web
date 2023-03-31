@@ -247,14 +247,8 @@ class NewsPage extends StatelessWidget {
                           showDialogphoto(context,
                               _controller.listnews.value[index].title!);
                         }
-
-                        if (_controller.listnews.value[index].id == 32 ||
-                            _controller.listnews.value[index].id == 33) {
-                          showDialogVideo(
-                              context,
-                              _controller.listnews.value[index].title!,
-                              _controller.listnews.value[index]);
-                        }
+                        showDialogVideo(
+                            context, _controller.listnews.value[index].title!);
                       }));
             }));
   }
@@ -305,7 +299,7 @@ class NewsPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 child: isMobile(context)
-                    ? _controller.news.value.videopath == null
+                    ? _controller.news.value.videopath!.isEmpty
                         ? Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -408,10 +402,7 @@ class NewsPage extends StatelessWidget {
                                           child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(15),
-                                            child: VideoVistavka(
-                                              path:
-                                                  'news/download/newsvideo${_controller.news.value.videopath}',
-                                            ),
+                                            child: VideoVistavka(),
                                           ),
                                         ),
                                       ),
@@ -578,24 +569,19 @@ class NewsPage extends StatelessWidget {
                           SizedBox(
                             width: 5,
                           ),
-                          if (_controller.news.value.videopath == null)
-                            VerticalDivider(
-                              thickness: 1.5,
-                            ),
-                          if (_controller.news.value.videopath == null)
-                            Expanded(
-                              flex: 3,
-                              child: Padding(
-                                padding: EdgeInsets.all(5),
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: VideoVistavka(
-                                    path:
-                                        'news/download/newsvideo${_controller.news.value.videopath}',
-                                  ),
-                                ),
+                          VerticalDivider(
+                            thickness: 1.5,
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Padding(
+                              padding: EdgeInsets.all(5),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(15),
+                                child: VideoVistavka(),
                               ),
                             ),
+                          ),
                         ],
                       )),
             actions: <Widget>[
@@ -615,8 +601,7 @@ class NewsPage extends StatelessWidget {
     );
   }
 
-  Future<void> showDialogVideo(
-      BuildContext context, String title, News news) async {
+  Future<void> showDialogVideo(BuildContext context, String title) async {
     return await showDialog<void>(
       context: context,
       barrierDismissible: true,
@@ -652,9 +637,7 @@ class NewsPage extends StatelessWidget {
                   padding: const EdgeInsets.all(5.0),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(15),
-                    child: VideoVistavka(
-                      path: 'news/download/newsvideo${news.videopath}',
-                    ),
+                    child: VideoVistavka(),
                   ),
                 ),
               ),

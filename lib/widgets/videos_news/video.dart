@@ -7,22 +7,23 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoVistavka extends StatefulWidget {
-  VideoVistavka({required String path});
 
-  String? path;
+
   @override
   _VideoVistavkaState createState() => _VideoVistavkaState();
+
 }
 
 class _VideoVistavkaState extends State<VideoVistavka> {
   late VideoPlayerController _controller;
   final Controller controller = Get.find();
+  String? _path ;
 
   @override
   void initState() {
     super.initState();
     _controller = VideoPlayerController.network(
-      '${UiJ.url}${widget.path}',
+      '${UiJ.url}news/download/newsvideo/${controller.news.value.videopath}',
     );
 
     _controller.addListener(() {
