@@ -9,7 +9,7 @@ import '../conrollers/Controller.dart';
 import '../models/News.dart';
 import '../models/uij.dart';
 
-String imagepath = '';
+String _imagepath = '';
 
 DateFormat formattedDate = DateFormat('dd-MM-yyyy');
 final Controller _controller = Get.find();
@@ -143,19 +143,19 @@ class NewsPage extends StatelessWidget {
                             if (_controller
                                     .listnews.value[index].imagenews!.length >
                                 0) {
-                              imagepath = _controller.listnews.value[index]
+                              _imagepath = _controller.listnews.value[index]
                                   .imagenews![0].imagepath!;
                             }
                             showDialogphoto(context,
                                 _controller.listnews.value[index].title!);
                           }
-                          if (_controller.listnews.value[index].id == 32 ||
-                              _controller.listnews.value[index].id == 33) {
-                            showDialogVideo(
-                                context,
-                                _controller.listnews.value[index].title!,
-                                _controller.listnews.value[index]);
-                          }
+                          // if (_controller.listnews.value[index].id == 32 ||
+                          //     _controller.listnews.value[index].id == 33) {
+                          //   showDialogVideo(
+                          //       context,
+                          //       _controller.listnews.value[index].title!,
+                          //       _controller.listnews.value[index]);
+                          // }
                           // showDialogphoto(context, _listnews[index].title!,
                           //     _listnews[index]);
                         },
@@ -241,7 +241,7 @@ class NewsPage extends StatelessWidget {
                           if (_controller
                                   .listnews.value[index].imagenews!.length >
                               0) {
-                            imagepath = _controller
+                            _imagepath = _controller
                                 .listnews.value[index].imagenews![0].imagepath!;
                           }
                           showDialogphoto(context,
@@ -337,7 +337,7 @@ class NewsPage extends StatelessWidget {
                                               setState(() {
                                                 controller.clickedItemPosition =
                                                     idx;
-                                                imagepath = _controller
+                                                _imagepath = _controller
                                                     .news
                                                     .value
                                                     .imagenews![idx]
@@ -383,7 +383,7 @@ class NewsPage extends StatelessWidget {
                                             borderRadius:
                                                 BorderRadius.circular(15.0),
                                             child: Image.network(
-                                                '${UiJ.url}news/download/imagenews/${imagepath}',
+                                                '${UiJ.url}news/download/imagenews/${_imagepath}',
                                                 fit: BoxFit.cover,
                                                 height: MediaQuery.of(context)
                                                     .size
@@ -430,7 +430,7 @@ class NewsPage extends StatelessWidget {
                                 child: ClipRRect(
                                     borderRadius: BorderRadius.circular(15.0),
                                     child: Image.network(
-                                        '${UiJ.url}news/download/imagenews/${imagepath}',
+                                        '${UiJ.url}news/download/imagenews/${_imagepath}',
                                         fit: BoxFit.cover,
                                         height:
                                             MediaQuery.of(context).size.height,
@@ -472,7 +472,7 @@ class NewsPage extends StatelessWidget {
                                           setState(() {
                                             controller.clickedItemPosition =
                                                 idx;
-                                            imagepath = _controller.news.value
+                                            _imagepath = _controller.news.value
                                                 .imagenews![idx].imagepath!;
                                           });
                                         },
@@ -530,7 +530,7 @@ class NewsPage extends StatelessWidget {
                                     onTap: () {
                                       setState(() {
                                         controller.clickedItemPosition = idx;
-                                        imagepath = _controller.news.value
+                                        _imagepath = _controller.news.value
                                             .imagenews![idx].imagepath!;
                                       });
                                     },
@@ -564,7 +564,7 @@ class NewsPage extends StatelessWidget {
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15.0),
                                 child: Image.network(
-                                    '${UiJ.url}news/download/imagenews/${imagepath}',
+                                    '${UiJ.url}news/download/imagenews/${_imagepath}',
                                     fit: BoxFit.cover,
                                     height: MediaQuery.of(context).size.height,
                                     width: MediaQuery.of(context).size.width,

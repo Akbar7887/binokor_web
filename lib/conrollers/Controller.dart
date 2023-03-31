@@ -93,7 +93,7 @@ class Controller extends GetxController {
 
     if (loadednews != null) {
       listnews.value = loadednews;
-      listnews.value.sort((a, b) => DateTime.parse(a.datacreate!)
+      listnews.value.sort((a, b) => DateTime.parse(b.datacreate!)
           .compareTo(DateTime.parse(a.datacreate!)));
     }
   }
