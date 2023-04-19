@@ -42,7 +42,7 @@ class _AboutMenu_DropDownState extends State<AboutMenu_DropDown> {
         child: Row(children: [
           Text(
             "О Компании",
-            style: TextStyle(fontSize: UiJ.sizeweight(context) ? 20 : 25),
+            style: TextStyle(fontSize: UiJ.sizeweight(context) ? 15 : 20),
           ),
           Icon(Icons.arrow_drop_down)
         ]),
@@ -54,11 +54,11 @@ class _AboutMenu_DropDownState extends State<AboutMenu_DropDown> {
                     ;
                   },
                   textStyle:
-                      TextStyle(fontSize: UiJ.sizeweight(context) ? 20 : 25),
+                      TextStyle(fontSize: UiJ.sizeweight(context) ? 15 : 20),
                   value: Menu.Menegers,
                   child: Text("Руководство",
                       style: TextStyle(
-                          fontSize: UiJ.sizeweight(context) ? 20 : 25,
+                          fontSize: UiJ.sizeweight(context) ? 15 : 20,
                           fontFamily: UiJ.font,
                           color: Colors.black))),
               // PopupMenuItem(
@@ -82,7 +82,7 @@ class _AboutMenu_DropDownState extends State<AboutMenu_DropDown> {
                   value: Menu.Vacansy,
                   child: Text("Вакансия",
                       style: TextStyle(
-                          fontSize: UiJ.sizeweight(context) ? 20 : 25,
+                          fontSize: UiJ.sizeweight(context) ? 15 : 20,
                           fontFamily: UiJ.font,
                           color: Colors.black))),
             ]);

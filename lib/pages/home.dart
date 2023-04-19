@@ -110,7 +110,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           unselectedLabelColor: Colors.black,
                           indicatorWeight: 1,
                           labelStyle: TextStyle(
-                              fontSize: UiJ.sizeweight(context) ? 20 : 25,
+                              fontSize: UiJ.sizeweight(context) ? 15 : 20,
                               fontFamily: UiJ.font),
                           isScrollable: true,
 

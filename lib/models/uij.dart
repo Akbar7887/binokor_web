@@ -11,9 +11,11 @@ class UiJ {
 
   static final font = 'Play'; //sans-serif
   static final fontbold = 'PlayBold';
+
   //static final String url = "https://dsk-webapp.azurewebsites.net/";
 
   static final String url = 'https://api.dsk.uz:8089/';
+
   //static final String url = 'http://localhost:8089/';
   static final String adress =
       'г.Ташкент, Янгихаётский район, ул.Зироат, дом 4, 100083, Узбекистан';
