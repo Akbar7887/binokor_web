@@ -29,7 +29,7 @@ class _VideoVistavkaState extends State<VideoVistavka> {
     _controller.addListener(() {
       setState(() {});
     });
-    _controller.setLooping(true);
+    // _controller.setLooping(true);
     _controller.initialize().then((_) => setState(() {}));
     _controller.play();
   }
