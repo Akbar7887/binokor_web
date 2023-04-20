@@ -364,8 +364,13 @@ class NewsPage extends StatelessWidget {
                             child: Container(
                               child: Column(
                                 children: [
+
                                   Expanded(
-                                    child: ClipRRect(
+                                    child: InkWell(
+                                      onDoubleTap: (){
+                                        Navigator.of(dialogContext).pop(); // Dismiss alert dialog
+                                      },
+                                      child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(15.0),
                                         child: Image.network(
@@ -383,19 +388,7 @@ class NewsPage extends StatelessWidget {
                                             child: CircularProgressIndicator(),
                                           );
                                         })),
-                                  ),
-                                  // Divider(
-                                  //   thickness: 1.5,
-                                  // ),
-                                  // Expanded(
-                                  //   child: Padding(
-                                  //     padding: EdgeInsets.all(5),
-                                  //     child: ClipRRect(
-                                  //       borderRadius: BorderRadius.circular(15),
-                                  //       child: VideoVistavka(),
-                                  //     ),
-                                  //   ),
-                                  // ),
+                                  )),
                                 ],
                               ),
                             ),
@@ -492,11 +485,8 @@ class NewsPage extends StatelessWidget {
                         ],
                       )),
             actions: <Widget>[
-              TextButton(
-                child: Text(
-                  'Закрыть',
-                  style: TextStyle(fontSize: 20, fontFamily: UiJ.fontbold),
-                ),
+              IconButton(
+                icon: Icon(Icons.close_outlined),
                 onPressed: () {
                   Navigator.of(dialogContext).pop(); // Dismiss alert dialog
                 },

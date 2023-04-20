@@ -1,30 +1,44 @@
-import 'package:binokor_web/api/api.dart';
-import 'package:binokor_web/models/Kompleks.dart';
-import 'package:binokor_web/models/LightUser.dart';
-import 'package:get/get.dart';
+import 'dart:convert';
 
-import '../models/Orderb.dart';
+import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
+
+import '../models/uij.dart';
 
 class ApiConnector extends GetConnect {
-  // final Repository repository = Repository();
-  final Api api = Api();
 
-  Future<List<Kompleks>>? getKomleks(String url) async {
-    final json = await api.getall(url);
-    final loadedHouse = json.map((e) => Kompleks.fromJson(e)).toList();
-    loadedHouse.sort((a, b) => a.id!.compareTo(b.id!));
-    return loadedHouse;
+  Map<String, String> header = {
+    'Content-Type': 'application/json',
+
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': 'true',
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept'
+  };
+
+  Future<List<dynamic>> getall(String url) async {
+    Uri uri = Uri.parse("${UiJ.url}${url}");
+    final response = await http.get(uri);
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return jsonDecode(utf8.decode(response.bodyBytes));
+    } else {
+      throw Exception("Error");
+    }
   }
 
-  Future<List<dynamic>> getAll(String url) async {
-    final json = await api.getall(url);
+  Future<dynamic> save(String url, dynamic object) async{
+    Uri uri = Uri.parse("${UiJ.url}${url}");
 
-    return json;
+    final response = await http.post(uri, body: json.encode(object), headers: header);
+
+    if (response.statusCode == 200
+        || response.statusCode == 201) {
+      return jsonDecode(utf8.decode(response.bodyBytes));
+
+    } else {
+      throw Exception("Error");
+    }
   }
 
-  Future<LightUser> postLightUser(String url, LightUser lightUser) async {
-    final json = await api.post(url, lightUser);
-
-    return LightUser.fromJson(json);
-  }
 }

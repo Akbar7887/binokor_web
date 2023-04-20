@@ -39,11 +39,21 @@ class getDrawer extends StatelessWidget {
                   ))),
           // alignment: Alignment.centerLeft,
           ListTile(
-            leading: Text(
+            title: Text(
               'О Компании',
               style: TextStyle(
                   fontSize: 25, fontFamily: UiJ.font, color: Colors.black),
             ),
+            trailing: _showmenu
+                ? Icon(
+                    Icons.keyboard_arrow_down,
+                    size: 25,
+                  )
+                : Icon(
+                    Icons.keyboard_arrow_right_outlined,
+                    size: 25,
+                  ),
+            iconColor: Colors.black38,
             onTap: () {
               setState(() {
                 _showmenu = !_showmenu;
@@ -57,94 +67,51 @@ class getDrawer extends StatelessWidget {
               ? Column(
                   // crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    InkWell(
-                      child: SizedBox(
-                          height: 50,
-                          child: Row(
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: 50,
-                              ),
-                              Icon(
-                                Icons.arrow_right_sharp,
-                                // size: 50,
-                                color: Colors.blue,
-                              ),
-                              Text(
-                                'Руководство',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontFamily: UiJ.font,
-                                    color: Colors.black),
-                              ),
-                            ],
-                          )),
+                    ListTile(
+                      title: Center(
+                          child: Text(
+                        'Руководство',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: UiJ.font,
+                            color: Colors.black),
+                      )),
+                      iconColor: Colors.black38,
+                      trailing: Icon(
+                        Icons.keyboard_arrow_right_outlined,
+                        size: 25,
+                      ),
                       onTap: () {
                         controller.changeindexpage(2);
                         controller.changeindextab(0);
                         Navigator.pop(context);
+                        // controller.changeindexpage(1);
+                        // controller.changeindextab(1);
+                        // Navigator.pop(context);
                       },
                     ),
                     Divider(),
-                    InkWell(
-                      child: SizedBox(
-                          height: 50,
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 50,
-                              ),
-                              Icon(
-                                Icons.arrow_right_sharp,
-                                // size: 50,
-                                color: Colors.blue,
-                              ),
-                              Text(
-                                'Новости',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontFamily: UiJ.font,
-                                    color: Colors.black),
-                              ),
-                            ],
-                          )),
-                      onTap: () {
-                        controller.changeindexpage(3);
-                        controller.changeindextab(0);
-                        Navigator.pop(context);
-                      },
-                    ),
-                    Divider(),
-                    InkWell(
-                      child: SizedBox(
-                          height: 50,
-                          child: Row(
-                            children: [
-                              SizedBox(
-                                width: 50,
-                              ),
-                              Icon(
-                                Icons.arrow_right_sharp,
-                                // size: 50,
-                                color: Colors.blue,
-                              ),
-                              Text(
-                                'Вакансия',
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    fontFamily: UiJ.font,
-                                    color: Colors.black),
-                              ),
-                            ],
-                          )),
+
+                    ListTile(
+                      title: Center(
+                          child: Text(
+                        'Вакансия',
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: UiJ.font,
+                            color: Colors.black),
+                      )),
+                      iconColor: Colors.black38,
+                      trailing: Icon(
+                        Icons.keyboard_arrow_right_outlined,
+                        size: 25,
+                      ),
                       onTap: () {
                         controller.changeindexpage(4);
                         controller.changeindextab(0);
                         Navigator.pop(context);
                       },
                     ),
-                    // Divider()
                   ],
                 )
               : Container(),
@@ -190,6 +157,24 @@ class getDrawer extends StatelessWidget {
             },
           ),
           Divider(),
+          ListTile(
+            title: Text(
+                  'Новости',
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: UiJ.font,
+                      color: Colors.black),
+                ),
+            onTap: () {
+              controller.changeindexpage(1);
+              controller.changeindextab(4);
+              Navigator.pop(context);
+              // controller.changeindexpage(1);
+              // controller.changeindextab(1);
+              // Navigator.pop(context);
+            },
+          ),
+          Divider(),
 
           ListTile(
             leading: Text(
@@ -199,7 +184,7 @@ class getDrawer extends StatelessWidget {
             ),
             onTap: () {
               controller.changeindexpage(1);
-              controller.changeindextab(4);
+              controller.changeindextab(5);
 
               Navigator.pop(context);
             },
@@ -213,7 +198,7 @@ class getDrawer extends StatelessWidget {
             ),
             onTap: () {
               controller.changeindexpage(1);
-              controller.changeindextab(5);
+              controller.changeindextab(6);
               Navigator.pop(context);
             },
           ),

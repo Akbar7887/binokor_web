@@ -3,9 +3,11 @@ import 'dart:io';
 import 'package:binokor_web/pages/zero_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 
 import 'conrollers/Controller.dart';
+import 'generated/l10n.dart';
 import 'models/uij.dart';
 import 'package:url_strategy/url_strategy.dart';
 
@@ -39,6 +41,13 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: UiJ.companyName,
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       theme: ThemeData(
         backgroundColor: Colors.black,
         bottomAppBarColor: Colors.black,

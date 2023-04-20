@@ -46,56 +46,39 @@ class Controller extends GetxController {
   }
 
   Future<LightUser> postLightUser(String url, LightUser user) async {
-    return await api.postLightUser(url, user);
+    return await api.save(url, user);
   }
 
   fetchListKompleks() async {
-    var komplek = await api.getKomleks("kompleks/v1/get");
-    if (komplek != null) {
-      listKompleks.value = komplek;
-      // listKompleks.value.sort((a, b) => a.id!.compareTo(b.id!));
-    }
+    final json = await api.getall("kompleks/v1/get");
+    listKompleks.value = json.map((e) => Kompleks.fromJson(e)).toList();
+    listKompleks.value.sort((a, b) => a.id!.compareTo(b.id!));
   }
 
   fetchListMeneger() async {
-    final json = await api.getAll("meneger/v1/get");
-    final loadedmeneger = json.map((e) => Meneger.fromJson(e)).toList();
-
-    if (loadedmeneger != null) {
-      listMeneger.value = loadedmeneger;
-      listMeneger.value.sort((a, b) => a.id!.compareTo(b.id!));
-    }
+    final json = await api.getall("meneger/v1/get");
+    listMeneger.value = json.map((e) => Meneger.fromJson(e)).toList();
+    listMeneger.value.sort((a, b) => a.id!.compareTo(b.id!));
   }
 
   fetchListMake() async {
-    final json = await api.getAll("make/v1/get");
-    final loadedmake = json.map((e) => Make.fromJson(e)).toList();
+    final json = await api.getall("make/v1/get");
+    listMake.value = json.map((e) => Make.fromJson(e)).toList();
+    listMake.value.sort((a, b) => a.id!.compareTo(b.id!));
 
-    if (loadedmake != null) {
-      listMake.value = loadedmake;
-      listMake.value.sort((a, b) => a.id!.compareTo(b.id!));
-    }
   }
 
   fetchListjob() async {
-    final json = await api.getAll("job/v1/get");
-    final loadedjob = json.map((e) => Job.fromJson(e)).toList();
-
-    if (loadedjob != null) {
-      listJob.value = loadedjob;
-      listJob.value.sort((a, b) => a.id!.compareTo(b.id!));
-    }
+    final json = await api.getall("job/v1/get");
+    listJob.value = json.map((e) => Job.fromJson(e)).toList();
+    listJob.value.sort((a, b) => a.id!.compareTo(b.id!));
   }
 
   fetchListnews() async {
-    final json = await api.getAll("news/v1/get");
-    final loadednews = json.map((e) => News.fromJson(e)).toList();
-
-    if (loadednews != null) {
-      listnews.value = loadednews;
-      listnews.value.sort((a, b) => DateTime.parse(b.datacreate!)
-          .compareTo(DateTime.parse(a.datacreate!)));
-    }
+    final json = await api.getall("news/v1/get");
+    listnews.value = json.map((e) => News.fromJson(e)).toList();
+    listnews.value.sort((a, b) => DateTime.parse(b.datacreate!)
+        .compareTo(DateTime.parse(a.datacreate!)));
   }
 
   changeindexpage(int newindex) {
