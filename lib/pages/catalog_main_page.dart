@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:hovering/hovering.dart';
 
 import '../conrollers/Controller.dart';
+import '../generated/l10n.dart';
 import '../models/Make.dart';
 import '../models/uij.dart';
 
@@ -36,7 +37,7 @@ class CatalogMainPage extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(top: 20),
                 alignment: Alignment.topLeft,
-                child: Text("Каталоги",
+                child: Text(S.of(context).catalog,
                     style: TextStyle(
                         fontSize:
                             MediaQuery.of(context).size.width > UiJ.widthSize

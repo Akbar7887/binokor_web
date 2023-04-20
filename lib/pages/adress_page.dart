@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../generated/l10n.dart';
 import '../models/uij.dart';
 
 class AdressPage extends StatelessWidget {
@@ -19,7 +20,7 @@ class AdressPage extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Адрес компании:',
+                      Text(S.of(context).adress,
                           style: TextStyle(
                               fontSize: UiJ.sizeweight(context) ? 25 : 30,
                               fontFamily: UiJ.fontbold,
@@ -137,7 +138,7 @@ class AdressPage extends StatelessWidget {
                       Container(
                         alignment: Alignment.center,
                         child: Text(
-                          "Copyright © 2020 Template by DSK BINOKOR",
+                          S.of(context).certificat,
                           style: TextStyle(color: Colors.white),
                         ),
                       )

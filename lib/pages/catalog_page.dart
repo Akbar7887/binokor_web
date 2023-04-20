@@ -7,6 +7,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
 
+import '../generated/l10n.dart';
 import '../models/Catalog.dart';
 import '../models/Orderb.dart';
 import '../models/uij.dart';
@@ -66,7 +67,7 @@ class _CatalogPageState extends State<CatalogPage> {
                       controller.changeindexpage(1);
                     },
                     icon: Icon(Icons.keyboard_arrow_left)),
-                Text("Каталоги",
+                Text(S.of(context).catalog,
                     style: TextStyle(
                         fontSize:
                             MediaQuery.of(context).size.width > UiJ.widthSize
@@ -118,7 +119,7 @@ class _CatalogPageState extends State<CatalogPage> {
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Форма заказа",
+                  S.of(context).form_order,
                   style: TextStyle(
                       fontSize: 20,
                       color: Colors.blue,
@@ -141,7 +142,7 @@ class _CatalogPageState extends State<CatalogPage> {
                         child: RichText(
                             text: TextSpan(children: [
                           TextSpan(
-                              text: 'Марка изделия:',
+                              text: S.of(context).mark_make,
                               style: TextStyle(fontSize: 15)),
                           WidgetSpan(
                               child: SizedBox(
@@ -165,7 +166,7 @@ class _CatalogPageState extends State<CatalogPage> {
                   decoration: InputDecoration(
                       fillColor: Colors.white,
                       //Theme.of(context).backgroundColor,
-                      labelText: "Длина",
+                      labelText: S.of(context).lenght,
                       labelStyle: TextStyle(color: Colors.blue),
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -177,7 +178,7 @@ class _CatalogPageState extends State<CatalogPage> {
                               BorderSide(width: 0.5, color: Colors.blue))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Не заполнено поле Длина!";
+                      return S.of(context).field_validate;
                     }
                   },
                 ),
@@ -193,7 +194,7 @@ class _CatalogPageState extends State<CatalogPage> {
                   decoration: InputDecoration(
                       fillColor: Colors.white,
                       //Theme.of(context).backgroundColor,
-                      labelText: "Ширина",
+                      labelText: S.of(context).widht,
                       labelStyle: TextStyle(color: Colors.blue),
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -205,7 +206,7 @@ class _CatalogPageState extends State<CatalogPage> {
                               BorderSide(width: 0.5, color: Colors.blue))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Не заполнено поле Ширина!";
+                      return S.of(context).field_validate;
                     }
                   },
                 ),
@@ -221,7 +222,7 @@ class _CatalogPageState extends State<CatalogPage> {
                   decoration: InputDecoration(
                       fillColor: Colors.white,
                       //Theme.of(context).backgroundColor,
-                      labelText: "Высота",
+                      labelText: S.of(context).height,
                       labelStyle: TextStyle(color: Colors.blue),
                       enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -233,7 +234,7 @@ class _CatalogPageState extends State<CatalogPage> {
                               BorderSide(width: 0.5, color: Colors.blue))),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Не заполнено поле Высота!";
+                      return S.of(context).field_validate;
                     }
                   },
                 ),
@@ -248,7 +249,7 @@ class _CatalogPageState extends State<CatalogPage> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "Кол-во",
+                          S.of(context).quantity,
                           style: TextStyle(
                             fontFamily: UiJ.fontbold,
                             fontSize: 20,
@@ -330,7 +331,7 @@ class _CatalogPageState extends State<CatalogPage> {
 
                           if (count == 0) {
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content: Text("Просим заполнить количество!")));
+                                content: Text(S.of(context).field_validate)));
                             return;
                           }
                           Orderb order = Orderb();
@@ -355,7 +356,7 @@ class _CatalogPageState extends State<CatalogPage> {
                           });
                         },
                         child: Text(
-                          "В Корзину",
+                          S.of(context).to_shopbox,
                           style:
                               TextStyle(fontFamily: UiJ.fontbold, fontSize: 20),
                         )))
@@ -408,7 +409,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                 SizedBox(
                                   width: 20,
                                 ),
-                                Text("Описание")
+                                Text(S.of(context).description)
                               ],
                             ),
                           ),
@@ -424,7 +425,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                 SizedBox(
                                   width: 20,
                                 ),
-                                Text("Характеристики")
+                                Text(S.of(context).characteristic)
                               ],
                             ),
                           ),
@@ -472,7 +473,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                 padding: EdgeInsets.all(16.0),
                                 alignment: Alignment.center,
                                 child: Text(
-                                  'Марка изделия',
+                                  S.of(context).mark_make,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),
@@ -483,7 +484,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                 padding: EdgeInsets.all(16.0),
                                 alignment: Alignment.center,
                                 child: Text(
-                                  'Длина',
+                                  S.of(context).lenght,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),
@@ -494,7 +495,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                 padding: EdgeInsets.all(16.0),
                                 alignment: Alignment.center,
                                 child: Text(
-                                  'Щирина',
+                                  S.of(context).widht,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),
@@ -505,7 +506,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                 padding: EdgeInsets.all(16.0),
                                 alignment: Alignment.center,
                                 child: Text(
-                                  'Высота',
+                                  S.of(context).height,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),
@@ -516,7 +517,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                 padding: EdgeInsets.all(16.0),
                                 alignment: Alignment.center,
                                 child: Text(
-                                  'Объем',
+                                  S.of(context).volume,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),
@@ -527,7 +528,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                 padding: EdgeInsets.all(16.0),
                                 alignment: Alignment.center,
                                 child: Text(
-                                  'Масса',
+                                  S.of(context).mass,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),
@@ -538,7 +539,7 @@ class _CatalogPageState extends State<CatalogPage> {
                                 padding: EdgeInsets.all(16.0),
                                 alignment: Alignment.center,
                                 child: Text(
-                                  'Класс бетона',
+                                  S.of(context).klass_concrate,
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold),
