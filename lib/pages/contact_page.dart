@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../generated/l10n.dart';
 import '../models/uij.dart';
 import '../widgets/googlemap.dart';
 
@@ -18,7 +19,7 @@ class ContactPage extends StatelessWidget {
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              child: Text('Адрес компании:',
+              child: Text(S.of(context).adress_company,
                   style: TextStyle(
                       fontSize:
                           MediaQuery.of(context).size.width > UiJ.widthSize
@@ -75,7 +76,7 @@ class ContactPage extends StatelessWidget {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Телефон',
+                    Text(S.of(context).telephone,
                         style: TextStyle(
                             fontSize: MediaQuery.of(context).size.width >
                                     UiJ.widthSize
@@ -116,7 +117,7 @@ class ContactPage extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Телеграм',
+                      Text(S.of(context).telegram,
                           style: TextStyle(
                               fontSize: MediaQuery.of(context).size.width >
                                       UiJ.widthSize
@@ -159,7 +160,7 @@ class ContactPage extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('E-mail',
+                      Text(S.of(context).email,
                           style: TextStyle(
                               fontSize: MediaQuery.of(context).size.width >
                                       UiJ.widthSize
@@ -230,7 +231,7 @@ class ContactPage extends StatelessWidget {
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Телефон',
+                    Text(S.of(context).telephone,
                         style: TextStyle(
                             fontSize: MediaQuery.of(context).size.width >
                                     UiJ.widthSize
@@ -271,7 +272,7 @@ class ContactPage extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Телеграм',
+                      Text(S.of(context).telegram,
                           style: TextStyle(
                               fontSize: MediaQuery.of(context).size.width >
                                       UiJ.widthSize
@@ -314,7 +315,7 @@ class ContactPage extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('E-mail',
+                      Text(S.of(context).email,
                           style: TextStyle(
                               fontSize: MediaQuery.of(context).size.width >
                                       UiJ.widthSize
