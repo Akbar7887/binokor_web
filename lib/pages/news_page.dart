@@ -78,7 +78,7 @@ class NewsPage extends StatelessWidget {
                                     // padding: EdgeInsets.only(left: 100, right: 100),
                                     // margin: EdgeInsets.all(20),
                                     child: Image.network(
-                                        '${UiJ.url}news/download/news/${_controller.listnews.value[index].imagepath}',
+                                        '${UiJ.url}news/v1/download/news/${_controller.listnews.value[index].imagepath}',
                                         width: double.infinity,
                                         height: 300, errorBuilder:
                                             (context, exception, stackTrace) {
@@ -183,7 +183,7 @@ class NewsPage extends StatelessWidget {
                                   elevation: 5,
                                   child: Container(
                                       child: Image.network(
-                                          '${UiJ.url}news/download/news/${_controller.listnews.value[index].imagepath}',
+                                          '${UiJ.url}news/v1/download/news/${_controller.listnews.value[index].imagepath}',
                                           width: 500,
                                           height: 300, errorBuilder:
                                               (context, exception, stackTrace) {
@@ -334,7 +334,7 @@ class NewsPage extends StatelessWidget {
                                           borderRadius:
                                               BorderRadius.circular(15.0),
                                           child: Image.network(
-                                            '${UiJ.url}news/download/imagenews/${_controller.news.value.imagenews![idx].imagepath}',
+                                            '${UiJ.url}news/v1/download/imagenews/${_controller.news.value.imagenews![idx].imagepath}',
                                             height: MediaQuery.of(context)
                                                     .size
                                                     .height /
@@ -369,7 +369,7 @@ class NewsPage extends StatelessWidget {
                                         borderRadius:
                                             BorderRadius.circular(15.0),
                                         child: Image.network(
-                                            '${UiJ.url}news/download/imagenews/${_imagepath}',
+                                            '${UiJ.url}news/v1/download/imagenews/${_imagepath}',
                                             fit: BoxFit.cover,
                                             height: MediaQuery.of(context)
                                                 .size
@@ -435,7 +435,7 @@ class NewsPage extends StatelessWidget {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(15.0),
                                       child: Image.network(
-                                        '${UiJ.url}news/download/imagenews/${_controller.news.value.imagenews![idx].imagepath}',
+                                        '${UiJ.url}news/v1/download/imagenews/${_controller.news.value.imagenews![idx].imagepath}',
                                         height:
                                             MediaQuery.of(context).size.height /
                                                 5,
@@ -462,7 +462,7 @@ class NewsPage extends StatelessWidget {
                             child: ClipRRect(
                                 borderRadius: BorderRadius.circular(15.0),
                                 child: Image.network(
-                                    '${UiJ.url}news/download/imagenews/${_imagepath}',
+                                    '${UiJ.url}news/v1/download/imagenews/${_imagepath}',
                                     fit: BoxFit.cover,
                                     height: MediaQuery.of(context).size.height,
                                     width: MediaQuery.of(context).size.width,

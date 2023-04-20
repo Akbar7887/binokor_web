@@ -84,7 +84,7 @@ class MenegersPage extends StatelessWidget {
                                       //     borderRadius:
                                       //         BorderRadius.circular(15)),
                                       child: Image.network(
-                                          '${UiJ.url}meneger/download/meneger/${controller.listMeneger[index].imagepath}',
+                                          '${UiJ.url}meneger/v1/download/meneger/${controller.listMeneger[index].imagepath}',
                                           // headers: UiJ.header_azur_image,
                                           width: 300,
                                           height: 300, errorBuilder:
@@ -199,7 +199,7 @@ class MenegersPage extends StatelessWidget {
                               elevation: 5,
                               child: Container(
                                   child: Image.network(
-                                      '${UiJ.url}meneger/download/meneger/${controller.listMeneger[index].imagepath}',
+                                      '${UiJ.url}meneger/v1/download/meneger/${controller.listMeneger[index].imagepath}',
                                       // headers: UiJ.header_azur_image,
                                       width: 300,
                                       height: 300, errorBuilder:

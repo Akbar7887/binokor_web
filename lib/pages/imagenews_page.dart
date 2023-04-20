@@ -20,7 +20,7 @@ class ImageNewsPage extends StatelessWidget {
           return Container(
             child: Card(
                 child: Image.network(
-                    '${UiJ.url}news/download/imagenews/${news.imagenews![idx].imagepath}')),
+                    '${UiJ.url}news/v1/download/imagenews/${news.imagenews![idx].imagepath}')),
           );
         });
   }

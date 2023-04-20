@@ -571,7 +571,7 @@ class _CatalogPageState extends State<CatalogPage> {
               child: Image.network(
                 controller.make == null
                     ? ''
-                    : '${UiJ.url}make/download/makes/${controller.make!.imagepath}',
+                    : '${UiJ.url}make/v1/download/makes/${controller.make!.imagepath}',
                 errorBuilder: (context, exception, stackTrace) {
                   return Center(
                     child: CircularProgressIndicator(),

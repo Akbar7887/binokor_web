@@ -97,7 +97,7 @@ class _KompleksForthPageState extends State<KompleksForthPage> {
                                       child: Container(
                                         padding: EdgeInsets.all(10),
                                         child: Image.network(
-                                          '${UiJ.url}imagedata/download/images/${e.imagepath}',
+                                          '${UiJ.url}imagedata/v1/download/images/${e.imagepath}',
                                           fit: BoxFit.fill,
                                         ),
                                       ),
@@ -106,7 +106,7 @@ class _KompleksForthPageState extends State<KompleksForthPage> {
                       Expanded(
                           flex: 4,
                           child: Image.network(
-                              '${UiJ.url}imagedata/download/images/${path}',
+                              '${UiJ.url}imagedata/v1/download/images/${path}',
                               fit: BoxFit.fill,
                               errorBuilder: (context, exception, stackTrace) {
                             return Center(

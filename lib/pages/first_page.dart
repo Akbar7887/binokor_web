@@ -79,7 +79,7 @@ class FirstPage extends StatelessWidget {
                                                                 .shade800)),
                                                     margin: EdgeInsets.all(10),
                                                     child: Image.network(
-                                                      '${UiJ.url}kompleks/download/house/${e.mainimagepath}',
+                                                      '${UiJ.url}kompleks/v1/download/house/${e.mainimagepath}',
                                                       fit: BoxFit.cover,
                                                       errorBuilder: (context,
                                                           exception,

@@ -50,7 +50,7 @@ class Controller extends GetxController {
   }
 
   fetchListKompleks() async {
-    var komplek = await api.getKomleks("kompleks/get");
+    var komplek = await api.getKomleks("kompleks/v1/get");
     if (komplek != null) {
       listKompleks.value = komplek;
       // listKompleks.value.sort((a, b) => a.id!.compareTo(b.id!));
@@ -58,7 +58,7 @@ class Controller extends GetxController {
   }
 
   fetchListMeneger() async {
-    final json = await api.getAll("meneger/get");
+    final json = await api.getAll("meneger/v1/get");
     final loadedmeneger = json.map((e) => Meneger.fromJson(e)).toList();
 
     if (loadedmeneger != null) {
@@ -68,7 +68,7 @@ class Controller extends GetxController {
   }
 
   fetchListMake() async {
-    final json = await api.getAll("make/get");
+    final json = await api.getAll("make/v1/get");
     final loadedmake = json.map((e) => Make.fromJson(e)).toList();
 
     if (loadedmake != null) {
@@ -78,7 +78,7 @@ class Controller extends GetxController {
   }
 
   fetchListjob() async {
-    final json = await api.getAll("job/get");
+    final json = await api.getAll("job/v1/get");
     final loadedjob = json.map((e) => Job.fromJson(e)).toList();
 
     if (loadedjob != null) {
@@ -88,7 +88,7 @@ class Controller extends GetxController {
   }
 
   fetchListnews() async {
-    final json = await api.getAll("news/get");
+    final json = await api.getAll("news/v1/get");
     final loadednews = json.map((e) => News.fromJson(e)).toList();
 
     if (loadednews != null) {

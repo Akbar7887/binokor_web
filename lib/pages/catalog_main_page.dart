@@ -104,7 +104,7 @@ class CatalogMainPage extends StatelessWidget {
                                                     child: Image.network(
                                                       _listMake[index] == null
                                                           ? ''
-                                                          : '${UiJ.url}make/download/makes/${_listMake[index].imagepath}',
+                                                          : '${UiJ.url}make/v1/download/makes/${_listMake[index].imagepath}',
                                                       errorBuilder: (context,
                                                           exception,
                                                           stackTrace) {

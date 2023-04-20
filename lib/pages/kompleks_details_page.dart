@@ -19,12 +19,12 @@ List<ImageDom> _listHistory = controller.listImageDom
     .toList();
 Map<String, String> _listCard = {
   'Основной':
-      '${UiJ.url}kompleks/download/house/${controller.kompleks!.mainimagepath}',
+      '${UiJ.url}kompleks/v1/download/house/${controller.kompleks!.mainimagepath}',
   'Проекты': (_listProject.length > 0
-      ? '${UiJ.url}imagedata/download/images/${_listProject[0].imagepath}'
+      ? '${UiJ.url}imagedata/v1/download/images/${_listProject[0].imagepath}'
       : ''),
   'Процесс сторительство': (_listHistory.length > 0
-      ? '${UiJ.url}imagedata/download/images/${_listHistory[0].imagepath}'
+      ? '${UiJ.url}imagedata/v1/download/images/${_listHistory[0].imagepath}'
       : '')
 };
 

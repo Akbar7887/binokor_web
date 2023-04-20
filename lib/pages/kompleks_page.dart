@@ -119,7 +119,7 @@ class KompleksPage extends StatelessWidget {
         child: Card(
             elevation: 5,
             child: Image.network(
-              '${UiJ.url}kompleks/download/house/${controller.listKompleks[index].mainimagepath}',
+              '${UiJ.url}kompleks/v1/download/house/${controller.listKompleks[index].mainimagepath}',
               // height: 50,
               // width: 50,
               errorBuilder: (context, exception, stackTrace) {
@@ -309,7 +309,7 @@ class KompleksPage extends StatelessWidget {
 
                           children: [
                             Image.network(
-                              '${UiJ.url}api/les/download/images/${_listImage[idx].imagepath}',
+                              '${UiJ.url}kompleks/v1/download/images/${_listImage[idx].imagepath}',
                               height: 600,
                               errorBuilder: (context, exception, stackTrace) {
                                 return Center(

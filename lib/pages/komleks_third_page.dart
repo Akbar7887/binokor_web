@@ -55,7 +55,7 @@ class KompleksThirdPage extends StatelessWidget {
                 padding: EdgeInsets.all(5),
                 child: Card(
                   child: Image.network(
-                    '${UiJ.url}kompleks/download/house/${controller.kompleks!.mainimagepath}',
+                    '${UiJ.url}kompleks/v1/download/house/${controller.kompleks!.mainimagepath}',
                     fit: BoxFit.fill,
                   ),
                 )),
@@ -63,14 +63,14 @@ class KompleksThirdPage extends StatelessWidget {
                 padding: EdgeInsets.all(5),
                 child: Card(
                     child: Image.network(
-                  '${UiJ.url}kompleks/download/house/${controller.kompleks!.mainimagepathfirst}',
+                  '${UiJ.url}kompleks/v1/download/house/${controller.kompleks!.mainimagepathfirst}',
                   fit: BoxFit.fill,
                 ))),
             Container(
                 padding: EdgeInsets.all(5),
                 child: Card(
                     child: Image.network(
-                  '${UiJ.url}kompleks/download/house/${controller.kompleks!.mainimagepathsecond}',
+                  '${UiJ.url}kompleks/v1/download/house/${controller.kompleks!.mainimagepathsecond}',
                   fit: BoxFit.fill,
                 ))),
           ],

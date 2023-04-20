@@ -23,7 +23,7 @@ class _VideoVistavkaState extends State<VideoVistavka> {
   void initState() {
     super.initState();
     _controller = VideoPlayerController.network(
-      '${UiJ.url}news/download/newsvideo/${controller.news.value.videopath}',
+      '${UiJ.url}news/v1/download/newsvideo/${controller.news.value.videopath}',
     );
 
     _controller.addListener(() {
