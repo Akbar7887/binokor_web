@@ -68,7 +68,6 @@ class KompleksDetailesPage extends StatelessWidget {
         Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
-
             child: CarouselSlider(
                 items: _listCard.entries.map((e) {
                   return InkWell(
@@ -90,34 +89,41 @@ class KompleksDetailesPage extends StatelessWidget {
                           controller.changeindexpage(9);
                         }
                       },
-                      child: Column(
-                        children: [
-                          Container(
-                              child: Text(e.key,
-                                  style: TextStyle(
-                                      fontSize:
-                                          MediaQuery.of(context).size.width >
-                                                  UiJ.widthSize
-                                              ? 30
-                                              : 15,
-                                      fontFamily: UiJ.fontbold))),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Expanded(
-                              child: Image.network(e.value,
-                                          errorBuilder: (context, exception,
-                                                  stackTrace) =>
-                                              Icon(
-                                                Icons.business,
-                                                size: MediaQuery.of(context)
-                                                        .size
-                                                        .width /
-                                                    4,
-                                                color: Colors.blue,
-                                              )))
-                        ],
-                      ));
+                      child: Container(
+                          width: MediaQuery.of(context).size.width / 3,
+                          child: Card(
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                      border: Border.all(
+                                          color: UiJ.border_color)),
+                                  padding: EdgeInsets.all(10),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                          child: Text(e.key,
+                                              style: TextStyle(
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                                  .size
+                                                                  .width >
+                                                              UiJ.widthSize
+                                                          ? 30
+                                                          : 15,
+                                                  fontFamily: UiJ.fontbold))),
+                                      Expanded(
+                                          child: Image.network(e.value,
+                                              errorBuilder: (context, exception,
+                                                      stackTrace) =>
+                                                  Icon(
+                                                    Icons.business,
+                                                    size: MediaQuery.of(context)
+                                                            .size
+                                                            .width /
+                                                        4,
+                                                    color: Colors.blue,
+                                                  )))
+                                    ],
+                                  )))));
                 }).toList(),
                 options: CarouselOptions(
                     height: MediaQuery.of(context).size.height,

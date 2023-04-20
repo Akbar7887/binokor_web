@@ -75,7 +75,7 @@ class KompleksPage extends StatelessWidget {
                                             MainAxisAlignment.center,
                                         children: [
                                           index % 2 == 0
-                                              ? getCar(index)
+                                              ? getCard(context, index)
                                               : getText(context, index),
                                           SizedBox(
                                             width: MediaQuery.of(context)
@@ -87,13 +87,13 @@ class KompleksPage extends StatelessWidget {
                                           ),
                                           index % 2 == 0
                                               ? getText(context, index)
-                                              : getCar(index),
+                                              : getCard(context,index),
                                         ],
                                       )
                                     : Column(
                                         children: [
                                           index % 2 == 0
-                                              ? getCar(index)
+                                              ? getCard(context, index)
                                               : getText(context, index),
                                           SizedBox(
                                             width: MediaQuery.of(context)
@@ -105,7 +105,7 @@ class KompleksPage extends StatelessWidget {
                                           ),
                                           index % 2 == 0
                                               ? getText(context, index)
-                                              : getCar(index),
+                                              : getCard(context, index),
                                         ],
                                       ),
                               ))));
@@ -114,14 +114,14 @@ class KompleksPage extends StatelessWidget {
     );
   }
 
-  Widget getCar(int index) {
+  Widget getCard(BuildContext context , int index) {
     return Expanded(
         child: Card(
             elevation: 5,
             child: Image.network(
               '${UiJ.url}kompleks/v1/download/house/${controller.listKompleks[index].mainimagepath}',
-              // height: 50,
-              // width: 50,
+              width: MediaQuery.of(context).size.width/3,
+
               errorBuilder: (context, exception, stackTrace) {
                 return Center(
                   child: CircularProgressIndicator(),
@@ -296,7 +296,7 @@ class KompleksPage extends StatelessWidget {
             ],
           ),
           content: SizedBox(
-              width: 1200,
+              width: MediaQuery.of(context).size.width,
               child: ListView.builder(
                   itemCount: _listImage.length,
                   itemBuilder: (context, idx) {
@@ -310,7 +310,7 @@ class KompleksPage extends StatelessWidget {
                           children: [
                             Image.network(
                               '${UiJ.url}kompleks/v1/download/images/${_listImage[idx].imagepath}',
-                              height: 600,
+                              height: MediaQuery.of(context).size.height/5,
                               errorBuilder: (context, exception, stackTrace) {
                                 return Center(
                                   child: CircularProgressIndicator(),

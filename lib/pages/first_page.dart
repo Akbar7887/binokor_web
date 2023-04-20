@@ -23,7 +23,7 @@ class FirstPage extends StatelessWidget {
                   alignment: Alignment.center,
                   padding: EdgeInsets.all(30),
                   child: Text(
-                    "В связи с неполадками на сервере, сайт DSK.UZ временно приостоновлено!",
+                    "В связи с неполадками на сервере, сайт WWW.DSK.UZ временно приостоновлено!",
                     style: TextStyle(
                         fontFamily: UiJ.font,
                         fontSize:
@@ -75,12 +75,12 @@ class FirstPage extends StatelessWidget {
                                                 child: Container(
                                                     decoration: BoxDecoration(
                                                         border: Border.all(
-                                                            color: Colors.blue
-                                                                .shade800)),
+                                                            color: UiJ.border_color)),
                                                     margin: EdgeInsets.all(10),
                                                     child: Image.network(
                                                       '${UiJ.url}kompleks/v1/download/house/${e.mainimagepath}',
-                                                      fit: BoxFit.cover,
+                                                      fit: BoxFit.fitHeight,
+                                                      height: MediaQuery.of(context).size.height/1.5,
                                                       errorBuilder: (context,
                                                           exception,
                                                           stackTrace) {

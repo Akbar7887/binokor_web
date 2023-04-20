@@ -30,6 +30,7 @@ class UiJ {
 
   static final header_azur_image = {'Content-Type': 'application/octet-stream'};
 
+  static final border_color = Colors.blue.shade200;
 // static final String prod_description = '    На сегодняшний день, компания \"DSK Binokor\" является одним из ведущих стройподрядчиков Узбекистана и производит различные массивные железобетонные изделия для сборного строительства, с использованием новейшего немецкого оборудования.';
 
   static callTelegram() async {
