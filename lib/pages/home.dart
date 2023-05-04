@@ -273,6 +273,18 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     child: selectionPage(controller.indexpage.value)),
+                Container(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: CatalogMainPage()),
+                Container(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: ProductionPage()),
+                Container(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: StudyPage()),
                 AdressPage()
               ],
             )
