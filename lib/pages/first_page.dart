@@ -36,6 +36,7 @@ class FirstPage extends StatelessWidget {
         : StatefulBuilder(builder: (context, setState) {
             return ListView(
               children: [
+
                 Center(
                     child: CarouselSlider(
                         items: controller.listKompleks.map((e) {
@@ -126,7 +127,7 @@ class FirstPage extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: controller.listKompleks.map(
-                        (image) {
+                            (image) {
                           int index = controller.listKompleks.indexOf(image);
                           return InkWell(
                               onTap: () {
@@ -137,7 +138,7 @@ class FirstPage extends StatelessWidget {
                               },
                               child: Container(
                                 width: 40,
-                                height: 10,
+                                // height: 10,
                                 margin: EdgeInsets.symmetric(
                                     vertical: 20.0, horizontal: 10.0),
                                 decoration: BoxDecoration(
@@ -157,23 +158,6 @@ class FirstPage extends StatelessWidget {
                         },
                       ).toList(), // this was the part the I had to add
                     )),
-                // SizedBox(
-                //   height: 10,
-                // ),
-                // Container(
-                //     height: MediaQuery.of(context).size.height,
-                //     width: MediaQuery.of(context).size.width,
-                //     child: NewsPage()),
-                // SizedBox(
-                //   height: 10,
-                // ),
-                // Container(
-                //     height: MediaQuery.of(context).size.height,
-                //     width: MediaQuery.of(context).size.width,
-                //     child: CatalogMainPage()),
-                // SizedBox(
-                //   height: 10,
-                // ),
               ],
             );
           });
