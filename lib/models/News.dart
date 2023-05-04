@@ -9,19 +9,21 @@ class News {
     String? title;
     List<ImageNews>? imagenews;
     String? videopath;
+    bool? showmain = false;
 
 
-    News({this.datacreate, this.description, this.id, this.imagepath, this.title, this.imagenews, this.videopath});
+    News({this.datacreate, this.description, this.id, this.imagepath, this.title, this.imagenews, this.videopath, this.showmain});
 
     factory News.fromJson(Map<String, dynamic> json) {
         return News(
             datacreate: json['datacreate'],
-            description: json['description'], 
-            id: json['id'], 
-            imagepath: json['imagepath'], 
+            description: json['description'],
+            id: json['id'],
+            imagepath: json['imagepath'],
             title: json['title'],
             imagenews: json['imageNewsList'] != null ? (json['imageNewsList'] as List).map((i) => ImageNews.fromJson(i)).toList() : null,
-            videopath: json['videopath']
+            videopath: json['videopath'],
+            showmain: json['showmain']
 
         );
     }
@@ -35,7 +37,7 @@ class News {
         data['title'] = this.title;
         data['imageNewsList'] = this.imagenews;
         data['videopath'] = this.videopath;
-
+        data['showmain'] = this.showmain;
         return data;
     }
 }

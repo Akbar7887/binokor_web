@@ -245,7 +245,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               controller: _scrollController,
               children: [
                 Container(
-                  height: 20,
+                  height: 25,
                   width: MediaQuery.of(context).size.width,
                   child: InkWell(
                       onTap: () {
@@ -253,7 +253,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         controller.changeindextab(0);
                       },
                       child: Marquee(
-                        text: controller.listnews[0].title!,
+                        text: controller.listnews
+                            .firstWhere((element) => element.showmain == true)
+                            .title!,
                         style: TextStyle(fontSize: 20, color: Colors.blue[600]),
                         scrollAxis: Axis.horizontal,
                         crossAxisAlignment: CrossAxisAlignment.start,

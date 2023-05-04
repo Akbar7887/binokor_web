@@ -23,20 +23,26 @@ class getDrawer extends StatelessWidget {
         scrollDirection: Axis.vertical,
         children: [
           Container(
-              child: DrawerHeader(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Colors.white, width: 0.5)),
-                  child: Column(
-                    children: [
-                      Container(
-                        child: Image.asset(
-                          'assets/images/logo1.png',
-                          width: 200,
-                        ),
+              child: InkWell(
+            child: DrawerHeader(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    border: Border.all(color: Colors.white, width: 0.5)),
+                child: Column(
+                  children: [
+                    Container(
+                      child: Image.asset(
+                        'assets/images/logo1.png',
+                        width: 200,
                       ),
-                    ],
-                  ))),
+                    ),
+                  ],
+                )),
+            onTap: () {
+              controller.changeindexpage(1);
+              controller.changeindextab(0);
+            },
+          )),
           // alignment: Alignment.centerLeft,
           ListTile(
             title: Text(
@@ -91,7 +97,6 @@ class getDrawer extends StatelessWidget {
                       },
                     ),
                     Divider(),
-
                     ListTile(
                       title: Center(
                           child: Text(
@@ -159,12 +164,10 @@ class getDrawer extends StatelessWidget {
           Divider(),
           ListTile(
             title: Text(
-                  'Новости',
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontFamily: UiJ.font,
-                      color: Colors.black),
-                ),
+              'Новости',
+              style: TextStyle(
+                  fontSize: 25, fontFamily: UiJ.font, color: Colors.black),
+            ),
             onTap: () {
               controller.changeindexpage(1);
               controller.changeindextab(4);

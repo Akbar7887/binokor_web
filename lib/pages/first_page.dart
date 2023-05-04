@@ -96,8 +96,8 @@ class FirstPage extends StatelessWidget {
                         }).toList(),
                         carouselController: carouselController,
                         options: CarouselOptions(
-                          height: MediaQuery.of(context).size.height /
-                              (UiJ.sizeweight(context) ? 1.4 : 1.3),
+                          height: MediaQuery.of(context).size.height,
+                              // (UiJ.sizeweight(context) ? 1.4 : 1.3),
                           aspectRatio: 16 / 9,
                           viewportFraction: 0.5,
                           initialPage: _current,
