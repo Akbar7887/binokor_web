@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UiJ {
@@ -21,8 +22,9 @@ class UiJ {
       'г.Ташкент, Янгихаётский район, ул.Зироат, дом 4, 100083, Узбекистан';
   static final String phone = '+998 71 205 0853';
   static final String telegram = 't.me/dsk_binokor_uzb';
-  static final String inhstagram = '';
-  static final String facebook = '';
+  static final String email = 'info@dsk.uz';
+  static final String inhstagram = 'www.instagram.com/dsk_binokor_uzb';
+  static final String facebook = 'www.facebook.com/DSK.Binokor';
   static final String lozung =
       'ЛИДЕР ПО ВЫСОКОТЕХНОЛОГИЧНОМУ ПРОИЗВОДСТВУ ЖЕЛЕЗОБЕТОННЫХ ИЗДЕЛИЙ ПО УЗБЕКИСТАНУ';
 
@@ -58,6 +60,10 @@ class UiJ {
     } else {
       throw 'Could not url';
     }
+  }
+
+  static callNumber(phone) async {
+    bool? res = await FlutterPhoneDirectCaller.callNumber(phone);
   }
 
   static callrefer(String path) async {
