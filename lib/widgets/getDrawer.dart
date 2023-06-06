@@ -36,6 +36,63 @@ class getDrawer extends StatelessWidget {
                         width: 200,
                       ),
                     ),
+                    Spacer(),
+
+                    Container(
+                        child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        InkWell(
+                            onTap: () {
+                              UiJ.callNumber(UiJ.phone);
+                            },
+                            child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Icon(
+                                    Icons.phone,
+                                    color: Colors.blue,
+                                    size: 15,
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  RichText(
+                                    text: TextSpan(children: [
+                                      TextSpan(
+                                          text: '${UiJ.phone}  ',
+                                          style: TextStyle(
+                                            // fontSize: 20,
+                                              fontWeight: FontWeight.w200,
+                                              fontFamily: UiJ.font,
+                                              color: Colors.black)),
+                                    ]),
+                                  )
+                                ])),
+                        IconButton(
+                            onPressed: () {
+                              UiJ.callFacebook();
+                            },
+                            icon: Icon(
+                              Icons.facebook,
+                              color: Colors.blue,
+                            )),
+                        IconButton(
+                            onPressed: () {
+                              UiJ.callInstagram();
+                            },
+                            icon: Image.asset(
+                                'assets/images/Instagram_icon.png')),
+                        IconButton(
+                            onPressed: () {
+                              UiJ.callTelegram();
+                            },
+                            icon: Icon(
+                              Icons.telegram,
+                              color: Colors.blue,
+                            ))
+                      ],
+                    ))
                   ],
                 )),
             onTap: () {
