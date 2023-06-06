@@ -30,7 +30,8 @@ class ContactPage extends StatelessWidget {
             ),
             Divider(),
             SizedBox(
-              height:  MediaQuery.of(context).size.width > UiJ.widthSize?30:10,
+              height:
+                  MediaQuery.of(context).size.width > UiJ.widthSize ? 30 : 10,
             ),
             MediaQuery.of(context).size.width > UiJ.widthSize
                 ? forWeb(context)
@@ -55,7 +56,10 @@ class ContactPage extends StatelessWidget {
                         WidgetSpan(
                             child: Icon(Icons.location_on_rounded,
                                 color: Colors.blue)),
-                        WidgetSpan(child: SizedBox(width: 10,)),
+                        WidgetSpan(
+                            child: SizedBox(
+                          width: 10,
+                        )),
                         TextSpan(
                             text: '${UiJ.adress}',
                             style: TextStyle(
@@ -117,7 +121,7 @@ class ContactPage extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(S.of(context).telegram,
+                      Text(S.of(context).socset,
                           style: TextStyle(
                               fontSize: MediaQuery.of(context).size.width >
                                       UiJ.widthSize
@@ -127,25 +131,107 @@ class ContactPage extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      RichText(
-                        text: TextSpan(children: [
-                          WidgetSpan(
-                            child: Icon(
-                              Icons.telegram,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          TextSpan(
-                              text: UiJ.telegram,
-                              style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.width >
-                                          UiJ.widthSize
-                                      ? 25
-                                      : 15,
-                                  fontWeight: FontWeight.w200,
-                                  fontFamily: UiJ.font))
-                        ]),
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Expanded(
+                                child: SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: IconButton(
+                                      onPressed: () {
+                                        UiJ.callTelegram();
+                                      },
+                                      icon: Icon(
+                                        Icons.telegram,
+                                        color: Colors.blue,
+                                        size: 50,
+                                      ),
+                                    ))),
+                            Expanded(
+                                child: SizedBox(
+                                    width: 50,
+                                    height: 50,
+                                    child: IconButton(
+                                      onPressed: () {
+                                        UiJ.callInstagram();
+                                      },
+                                      icon: Image.asset(
+                                        'assets/images/Instagram_icon.png',
+                                        width: 50,
+                                        height: 50,
+                                      ),
+                                    ))),
+                            Expanded(
+                              child: SizedBox(
+                                  width: 50,
+                                  height: 50,
+                                  child: IconButton(
+                                      onPressed: () {
+                                        UiJ.callFacebook();
+                                      },
+                                      icon: Icon(
+                                        Icons.facebook,
+                                        color: Colors.blue,
+                                        size: 50,
+                                      ))),
+                            )
+                          ],
+                        ),
                       )
+                      // child: InkWell(
+                      //     onTap: () {
+                      //       UiJ.callTelegram();
+                      //     },
+                      //     child: Row(
+                      //         crossAxisAlignment: CrossAxisAlignment.start,
+                      //         children: [
+                      //           Icon(Icons.telegram, color: Colors.blue),
+                      //           SizedBox(
+                      //             width: 10,
+                      //           ),
+                      //           // RichText(
+                      //           //   text: TextSpan(children: [
+                      //           //     TextSpan(
+                      //           //         text: UiJ.telegram,
+                      //           //         style: TextStyle(
+                      //           //             // fontSize: 25,
+                      //           //             fontWeight: FontWeight.w200,
+                      //           //             fontFamily: UiJ.font))
+                      //           //   ]),
+                      //           // )
+                      //         ]))),
+                      //
+                      // Container(
+                      //     alignment: Alignment.topLeft,
+                      //     child: InkWell(
+                      //         onTap: () {
+                      //           UiJ.callInstagram();
+                      //         },
+                      //         child: Row(
+                      //             crossAxisAlignment: CrossAxisAlignment.start,
+                      //             children: [
+                      //               Image.asset(
+                      //                 'assets/images/Instagram_icon.png',
+                      //                 width: 30,
+                      //                 height: 30,
+                      //               ),
+                      //               SizedBox(
+                      //                 width: 10,
+                      //               ),
+                      //               RichText(
+                      //                 text: TextSpan(children: [
+                      //                   TextSpan(
+                      //                       text: UiJ.inhstagram,
+                      //                       style: TextStyle(
+                      //                           // fontSize: 25,
+                      //                           fontWeight: FontWeight.w200,
+                      //                           fontFamily: UiJ.font))
+                      //                 ]),
+                      //               )
+                      //             ]))),
                     ])),
           ),
           SizedBox(
@@ -210,8 +296,8 @@ class ContactPage extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: ListView(children: [
-           RichText(
-                  text: TextSpan(children: [
+          RichText(
+              text: TextSpan(children: [
             WidgetSpan(
                 child: Icon(Icons.location_on_rounded, color: Colors.blue)),
             TextSpan(
@@ -282,24 +368,50 @@ class ContactPage extends StatelessWidget {
                       SizedBox(
                         height: 10,
                       ),
-                      RichText(
-                        text: TextSpan(children: [
-                          WidgetSpan(
-                            child: Icon(
-                              Icons.telegram,
-                              color: Colors.blue,
-                            ),
-                          ),
-                          TextSpan(
-                              text: UiJ.telegram,
-                              style: TextStyle(
-                                  fontSize: MediaQuery.of(context).size.width >
-                                          UiJ.widthSize
-                                      ? 25
-                                      : 15,
-                                  fontWeight: FontWeight.w200,
-                                  fontFamily: UiJ.font))
-                        ]),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: InkWell(
+                            onTap: () {
+                              UiJ.callTelegram();
+                            },
+                            child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Icon(Icons.telegram, color: Colors.blue),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  RichText(
+                                    text: TextSpan(children: [
+                                      TextSpan(
+                                          text: UiJ.telegram,
+                                          style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w200,
+                                              fontFamily: UiJ.font,
+                                              color: Colors.white))
+                                    ]),
+                                  )
+                                ])),
+                        // RichText(
+                        //   text: TextSpan(children: [
+                        //     WidgetSpan(
+                        //       child: Icon(
+                        //         Icons.telegram,
+                        //         color: Colors.blue,
+                        //       ),
+                        //     ),
+                        //     TextSpan(
+                        //         text: UiJ.telegram,
+                        //         style: TextStyle(
+                        //             fontSize: MediaQuery.of(context).size.width >
+                        //                     UiJ.widthSize
+                        //                 ? 25
+                        //                 : 15,
+                        //             fontWeight: FontWeight.w200,
+                        //             fontFamily: UiJ.font))
+                        //   ]),
+                        // )
                       )
                     ])),
           ),

@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "mark_make": MessageLookupByLibrary.simpleMessage("Марка изделия:"),
         "mass": MessageLookupByLibrary.simpleMessage("Масса"),
         "quantity": MessageLookupByLibrary.simpleMessage("Кол-во"),
+        "socset": MessageLookupByLibrary.simpleMessage("Социальные сети"),
         "telegram": MessageLookupByLibrary.simpleMessage("Телеграм"),
         "telephone": MessageLookupByLibrary.simpleMessage("Телефон"),
         "to_shopbox": MessageLookupByLibrary.simpleMessage("В Корзину"),

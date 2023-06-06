@@ -249,6 +249,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Социальные сети`
+  String get socset {
+    return Intl.message(
+      'Социальные сети',
+      name: 'socset',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
