@@ -184,7 +184,7 @@ class ContactPage extends StatelessWidget {
                                 ])),
                       ),
                       SizedBox(
-                        height: 50,
+                        height: 30,
                       ),
                       Container(
                         alignment: Alignment.topLeft,
