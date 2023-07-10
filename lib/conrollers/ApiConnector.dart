@@ -27,6 +27,17 @@ class ApiConnector extends GetConnect {
     }
   }
 
+  Future<dynamic> getOne(String url) async {
+    Uri uri = Uri.parse("${UiJ.url}${url}");
+    final response = await http.get(uri);
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return jsonDecode(utf8.decode(response.bodyBytes));
+    } else {
+      throw Exception("Error");
+    }
+  }
+
   Future<dynamic> save(String url, dynamic object) async{
     Uri uri = Uri.parse("${UiJ.url}${url}");
 

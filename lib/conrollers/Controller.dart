@@ -6,6 +6,7 @@ import 'package:binokor_web/models/News.dart';
 import 'package:get/get.dart';
 
 import '../models/Dom.dart';
+import '../models/Events.dart';
 import '../models/Make.dart';
 import '../models/Meneger.dart';
 import '../models/Orderb.dart';
@@ -28,6 +29,7 @@ class Controller extends GetxController {
   List<Orderb> orderlist = <Orderb>[].obs;
   String titleKompleks = '';
   int pageKomleks = 0;
+  Rx<Events> events = Events().obs;
 
   int clickedItemPosition = 0;
 
@@ -40,6 +42,7 @@ class Controller extends GetxController {
     fetchListMake();
     fetchListjob();
     fetchListnews();
+    fetchEvent();
     indexpage.value = 1;
     indextab.value = 0;
     super.onInit();
@@ -79,6 +82,11 @@ class Controller extends GetxController {
     listnews.value = json.map((e) => News.fromJson(e)).toList();
     listnews.value.sort((a, b) => DateTime.parse(b.datacreate!)
         .compareTo(DateTime.parse(a.datacreate!)));
+  }
+
+  fetchEvent() async {
+    final json = await api.getOne("event/v1/getone");
+    events.value = Events.fromJson(json);
   }
 
   changeindexpage(int newindex) {

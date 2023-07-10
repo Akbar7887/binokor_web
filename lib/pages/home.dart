@@ -34,7 +34,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   late TabController tabController;
-  final controller = Get.put(Controller());
+  final _controller = Get.put(Controller());
   ScrollController _scrollController = ScrollController();
   double _scrollPosition = 0;
 
@@ -53,7 +53,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    tabController.index = controller.indextab.toInt();
+    tabController.index = _controller.indextab.toInt();
     return Obx(() => SafeArea(
             child: Scaffold(
           extendBodyBehindAppBar: true,
@@ -82,8 +82,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   InkWell(
                     onTap: () {
                       tabController.index = 0;
-                      controller.changeindexpage(1);
-                      controller.changeindextab(0);
+                      _controller.changeindexpage(1);
+                      _controller.changeindextab(0);
                     },
                     child: Container(
                       padding: EdgeInsets.only(left: 50),
@@ -122,14 +122,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                             // });
                             tabController.index = idx;
                             if (idx == 1) {
-                              controller.changeindexpage(1);
-                              controller.changeindextab(1);
+                              _controller.changeindexpage(1);
+                              _controller.changeindextab(1);
                             } else if (idx == 0) {
-                              controller.changeindexpage(1);
-                              controller.changeindextab(0);
+                              _controller.changeindexpage(1);
+                              _controller.changeindextab(0);
                             } else {
-                              controller.changeindexpage(1);
-                              controller.changeindextab(idx);
+                              _controller.changeindexpage(1);
+                              _controller.changeindextab(idx);
                             }
                           },
 
@@ -193,8 +193,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               actions: [
                 IconButton(
                     onPressed: () {
-                      controller.changeindextab(1);
-                      controller.changeindexpage(7);
+                      _controller.changeindextab(1);
+                      _controller.changeindexpage(7);
                     },
                     icon: Icon(
                       Icons.add_shopping_cart,
@@ -204,7 +204,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                           : 20,
                     )),
                 Obx(() => Text(
-                      controller.orderlist.length.toString(),
+                  _controller.orderlist.length.toString(),
                       style: TextStyle(
                           fontFamily: UiJ.fontbold,
                           fontSize:
@@ -215,8 +215,8 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     )),
                 TextButton(
                     onPressed: () {
-                      controller.changeindextab(1);
-                      controller.changeindexpage(7);
+                      _controller.changeindextab(1);
+                      _controller.changeindexpage(7);
                     },
                     child: Text("Оформить \nзаказать",
                         style: TextStyle(
@@ -249,13 +249,11 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   width: MediaQuery.of(context).size.width,
                   child: InkWell(
                       onTap: () {
-                        controller.changeindexpage(3);
-                        controller.changeindextab(0);
+                        _controller.changeindexpage(3);
+                        _controller.changeindextab(0);
                       },
                       child: Marquee(
-                        text: controller.listnews
-                            .firstWhere((element) => element.showmain == true)
-                            .title!,
+                        text: _controller.events.value.title!,
                         style: TextStyle(fontSize: 20, color: Colors.blue[600]),
                         scrollAxis: Axis.horizontal,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -272,7 +270,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 Container(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
-                    child: selectionPage(controller.indexpage.value)),
+                    child: selectionPage(_controller.indexpage.value)),
                 Container(
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
@@ -294,7 +292,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
   }
 
   selectionPage(int page) {
-    tabController.index = controller.indextab.toInt();
+    tabController.index = _controller.indextab.toInt();
 
     switch (page) {
       case 1:
