@@ -265,6 +265,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                         accelerationCurve: Curves.linear,
                         decelerationDuration: Duration(milliseconds: 500),
                         decelerationCurve: Curves.easeOut,
+
                       )),
                 ),
                 Container(
